@@ -11,7 +11,7 @@ from kviz_data import quiz_data
 logging.basicConfig(level=logging.INFO)
 
 # Замените "YOUR_BOT_TOKEN" на токен, который вы получили от BotFather
-API_TOKEN = '8498566889:AAG6JSzPiFBeX9x5uZ53-OsKtiNB7Cs0sCU'
+API_TOKEN = 'token'
 
 # Объект бота
 bot = Bot(token=API_TOKEN)
@@ -169,6 +169,9 @@ async def create_table():
         await db.execute('''CREATE TABLE IF NOT EXISTS users (user_id INTEGER PRIMARY KEY, score INTEGER)''')
         # Сохраняем изменения
         await db.commit()
+
+@dp.message(F.text=="Статистика")
+@dp.message(Command("statistics"))
 
 
 # Запуск процесса поллинга новых апдейтов
